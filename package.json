@@ -1,0 +1,23 @@
+{
+  "name": "quick-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss -o src/assets/css --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choco-taco/Space-Dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/choco-taco/Space-Dashboard/issues"
+  },
+  "homepage": "https://github.com/choco-taco/Space-Dashboard#readme",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
