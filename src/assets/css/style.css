@@ -6,28 +6,44 @@ body, html {
   height: 100%;
   margin: 0;
   font-size: 16px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.8em;
   color: #666;
 }
-
-.menu ul {
-  list-style-type: none;
-  margin: 20px;
-  padding: 20px; 
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
-.menu li {
-  padding: 8px;
-  margin-bottom: 7px;
-  background-color: #33b5e5;
-  color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
 }
 
-.menu li:hover {
-  background-color: #0099cc; 
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 .pimg1, .pimg2 {
@@ -46,7 +62,7 @@ body, html {
 
 .pimg1 {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNL102A7wO0uSQxdxk5mwvJOh3neYkz0D_glGZ740vRzNq3o_erA");
-  min-height: 400px;
+ min-height: 400px;
 }
 
 .pimg2 {
@@ -70,14 +86,7 @@ body, html {
   width: 40%;
   margin-left: 700px;
 }
-#content-container {
-  height: 400px;
-  width: 90%;
-  padding: 10px;
-  border: 5px solid gray;
-  margin: 2px;
-  margin-bottom: 10px;
-}
+
 p {
   position: relative;
 }
@@ -97,5 +106,31 @@ p {
 /* .jumbotron{ 
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1P2l2sTv4SG1uqy5PH7p_sk04y5niecWcNMzgU76TWcGKt_V5");
   background-size: 100% 200px;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  
+#content-container {
+  height: 400px;
+  width: 90%;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 2px;
+  margin-bottom: 10px;
+}
+.menu ul {
+  list-style-type: none;
+  margin: 20px;
+  padding: 20px; 
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
+}
+
+.menu li:hover {
+  background-color: #0099cc; 
+}
 */
