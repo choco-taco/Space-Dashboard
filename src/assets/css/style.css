@@ -67,6 +67,8 @@ body, html {
 }
 #map {
   height: 425px;
+  width: 40%;
+  margin-left: 700px;
 }
 #content-container {
   height: 400px;

@@ -26,7 +26,7 @@
 //   - Manifest: /manifests/rover_name
 
 
-$('.ui.radio.checkbox')
+/*$('.ui.radio.checkbox')
   .checkbox()
 ;
 
@@ -170,14 +170,16 @@ $('.ui.radio.checkbox')
 
     $('#next-button').on('click', function() {
         reqPrevOrNextAsteroids($(this).data('next-link'));
-    });
+    });*/
 
 
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-var map, infoWindow;
+var map2 = "hi joe";
+var map; 
+var infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
@@ -212,6 +214,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
+  console.log(infoWindow.open(map))
 }
 
-}())
+//}())
