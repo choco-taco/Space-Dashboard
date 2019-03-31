@@ -1,7 +1,7 @@
 /*#date-form #month-input, #date-form #day-input {
   width: 55px; }*/
 
-
+/*Dashboard*/
 body, html {
   height: 100%;
   margin: 0;
@@ -11,10 +11,11 @@ body, html {
   line-height: 1.8em;
   color: #666;
 }
+
 .sidenav {
   height: 100%;
   width: 160px;
-  position: relative;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
@@ -35,8 +36,8 @@ body, html {
   color: #f1f1f1;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
+#main {
+  margin-left: 240px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
@@ -53,6 +54,7 @@ body, html {
  background-repeat: no-repeat; 
  background-attachment: fixed;
 }
+
 @media(max-width:568px){
   .pimg1, .pimg2{
     background-attachment: scroll;
@@ -81,14 +83,11 @@ body, html {
   background: transparent;
   text-transform: uppercase;
 }
+
 #map {
   height: 425px;
   width: 40%;
-  margin-left: 700px;
-}
-
-p {
-  position: relative;
+  margin-left: 740px;
 }
 
 .section-dark {
@@ -98,39 +97,16 @@ p {
 }
 
 
-/*.header {
-  text-align: center; 
-  color: #666;
-}*/
-
-/* .jumbotron{ 
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1P2l2sTv4SG1uqy5PH7p_sk04y5niecWcNMzgU76TWcGKt_V5");
-  background-size: 100% 200px;
-  background-repeat: no-repeat;
+/*Landing html*/
+.container-fluid {
+  background-image: url("https://cdn.images.express.co.uk/img/dynamic/78/590x/space-913877.jpg");
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-attachment: scroll;
+ }
+.location-btn {
+  position: relative;
   
-#content-container {
-  height: 400px;
-  width: 90%;
-  padding: 10px;
-  border: 5px solid gray;
-  margin: 2px;
-  margin-bottom: 10px;
 }
-.menu ul {
-  list-style-type: none;
-  margin: 20px;
-  padding: 20px; 
-}
-
-.menu li {
-  padding: 8px;
-  margin-bottom: 7px;
-  background-color: #33b5e5;
-  color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
-}
-
-.menu li:hover {
-  background-color: #0099cc; 
-}
-*/
