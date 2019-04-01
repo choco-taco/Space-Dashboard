@@ -58,17 +58,21 @@ body, html {
 @media(max-width:568px){
   .pimg1, .pimg2{
     background-attachment: scroll;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
   }
 
 }
 
 .pimg1 {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNL102A7wO0uSQxdxk5mwvJOh3neYkz0D_glGZ740vRzNq3o_erA");
+  background-image: url("../images/World-Earth.jpg");
  min-height: 400px;
 }
 
 .pimg2 {
-  background-image: url("https://images.pexels.com/photos/2154/sky-lights-space-dark.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-image: url("../images/stars.jpg");
   min-height: 400px;
 }
 
@@ -99,14 +103,34 @@ body, html {
 
 /*Landing html*/
 .container-fluid {
-  background-image: url("https://cdn.images.express.co.uk/img/dynamic/78/590x/space-913877.jpg");
+  background-image: url("../images/nasa.jpg");
+  min-height: 400px;
+  opacity: 3;
   position: absolute;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; 
   background-attachment: scroll;
  }
-.location-btn {
+#input {
   position: relative;
-  
+  left: 500px;
+  top: 300px;
+}
+.section-dark2 {
+  top: 50%;
+  height: 50%;
+  position: relative;
+  background-color: #282e34;
+  color: #ddd;
+  text-align: center;
+}
+.breadcrumb {
+  float: right;
+  background-color: #666;
+  margin-right: 20px;
+}
+.logo {
+  float: left;
+  background-repeat: no-repeat;
 }
