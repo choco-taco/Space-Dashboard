@@ -171,7 +171,9 @@
     $('#next-button').on('click', function() {
         reqPrevOrNextAsteroids($(this).data('next-link'));
     });*/
+
+
+    
     $(document).ready(function(){
         $('.pointing.menu .item').tab({history:false});
     });
-    
