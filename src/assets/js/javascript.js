@@ -174,3 +174,4 @@
     $(document).ready(function(){
         $('.pointing.menu .item').tab({history:false});
     });
+    
