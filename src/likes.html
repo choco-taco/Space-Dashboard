@@ -31,6 +31,7 @@
                 <button id="like-button">Like</button><br>
             </div>
 
+<<<<<<< .merge_file_al8aCe
             <div class="col-4">
                 <!-- IMAGE -->
                 <h2>Image 02</h2>
@@ -54,6 +55,29 @@
             </div>
         </div>
     </div>
+=======
+    <!-- INSTRUCTIONS -->
+    <h1>Most Liked Photos</h1>
+    <p>Vote on your favorite photo by clicking the like button!</p>
+
+    <!-- IMAGE -->
+    <img src="https://media.stsci.edu/uploads/image/thumbnail/4280/STSCI-H-p1848e-t-400x400.png"><br>
+
+    <!-- LIKE COUNTER -->
+    <p>This image has <span id="like-value"></span> likes</p>
+
+    <!-- BUTTON -->
+    <button id="like-button">Like</button><br>
+
+    <!-- IMAGE -->
+    <img src="https://media.stsci.edu/uploads/image/thumbnail/4150/STSCI-H-p1821a-t-400x400.png"><br>
+
+    <!-- LIKE COUNTER -->
+    <p>This image has <span id="like-value"></span> likes</p>
+
+    <!-- BUTTON -->
+    <button id="like-button">Like</button>
+>>>>>>> .merge_file_bqoV6n
 
     <!-- JQUERY LINK-->
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -77,15 +101,56 @@
         firebase.initializeApp(config);
 
         // VARIABLES
+        // =====================================
         var database = firebase.database();
         var likes = 0;
         var likeCounter2 = 0;
 
+        // TEST CODE
+        // =====================================
+
+        window.localStorage.setItem('likes', 'answer_1,answer_2');
+
+        var private FIREBASE_COLLECTION = 'faq-likes';
+        // Here we have our local faq questions and answers
+        private faqEntries = [...];
+        constructor(private firebase: AngularFirestore) {
+            // Use a separate collection per environment
+            this.FIREBASE_COLLECTION += `:${env.name}`
+        }
+        // Load total likes on page load
+        this.firebase.collection(this.FIREBASE_COLLECTION).snapshotChanges().subscribe(results => {
+            // Returns the stored objects along with some metadata
+            // Map the likes to the local faq entries
+            items.forEach(firebaseItem => {
+                const questionID = firebaseItem.payload.doc.id;
+                const likes = firebaseItem.payload.doc.data()['likes'];
+
+                this.faqEntries.find(entry => entry.questionID === questionID).likes = likes;
+            });
+        });
+
+        // Still in the same component as above.
+        // getID() will return the ID for the selected question
+        const questionID = getID();
+        this.firebase.doc(`${this.FIREBASE_COLLECTION}/${questionID}`).set({
+            likes: prevLikes + 1,
+            lastUpdate: new Date().toISOString()
+        });
+
+        // FUNCTIONS
+        // =====================================
         // On click event that adds a like to the like counter
         $("#like-button").on("click", function () {
+<<<<<<< .merge_file_al8aCe
             likes++;
             database.ref('image1/likes').set({
                 likes: likeCounter
+=======
+            likeCounter++;
+            database.ref().set({
+                likeCount: likeCounter
+>>>>>>> .merge_file_bqoV6n
             });
         });
 

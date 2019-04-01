@@ -7,46 +7,8 @@
 //   - Feed: https://api.nasa.gov/neo/rest/v1/feed?start_date=START_DATE&end_date=END_DATE
 //   - Lookup: https://api.nasa.gov/neo/rest/v1/neo/ 
 //   - Browse: https://api.nasa.gov/neo/rest/v1/neo/browse/
-// - Mars Rovers
-// 
-//   Abbr 	    Camera 	                    Curiousity Opportunity Spirit
-//   FHAZ 	    Front Hazard Avoidance Camera 	✔ 	    ✔ 	        ✔
-//   RHAZ 	    Rear Hazard Avoidance Camera 	✔ 	    ✔ 	        ✔
-//   MAST 	    Mast Camera 	                ✔
-//   CHEMCAM    Chemistry and Camera Complex    ✔ 	
-//   MAHLI 	    Mars Hand Lens Imager 	        ✔
-//   MARDI 	    Mars Descent Imager 	        ✔
-//   NAVCAM 	Navigation Camera 	            ✔ 	    ✔ 	        ✔ 
-//   PANCAM 	Panoramic Camera 		                 ✔ 	         ✔
-//   MINITES 	Miniature Thermal  		                 ✔ 	         ✔
-//              Emission Spectrometer (Mini-TES)
-
-//   - By sol: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&                     camera=fhaz&api_key=DEMO_KEY
-//   - By date: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?                              earth_date=2015-6-3&api_key=DEMO_KEY
-//   - Manifest: /manifests/rover_name
 
 
-$('.ui.radio.checkbox')
-  .checkbox()
-;
-
-(function(){
-
-    function reqRoverImages(rover, sol) {
-        
-        var urlQuery = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=2f8aJAjNNh8BekW6ZgjWpdqXBhrtZoQCX12mfhla`;
-
-        $.ajax({
-            url: urlQuery,
-            method: 'GET',
-        }).then(function(response) {
-
-        })
-    }
-
-    // function renderRoverImages();
-
-}())
 
 (function(){
 
