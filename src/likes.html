@@ -31,7 +31,6 @@
                 <button id="like-button">Like</button><br>
             </div>
 
-<<<<<<< .merge_file_al8aCe
             <div class="col-4">
                 <!-- IMAGE -->
                 <h2>Image 02</h2>
@@ -55,29 +54,6 @@
             </div>
         </div>
     </div>
-=======
-    <!-- INSTRUCTIONS -->
-    <h1>Most Liked Photos</h1>
-    <p>Vote on your favorite photo by clicking the like button!</p>
-
-    <!-- IMAGE -->
-    <img src="https://media.stsci.edu/uploads/image/thumbnail/4280/STSCI-H-p1848e-t-400x400.png"><br>
-
-    <!-- LIKE COUNTER -->
-    <p>This image has <span id="like-value"></span> likes</p>
-
-    <!-- BUTTON -->
-    <button id="like-button">Like</button><br>
-
-    <!-- IMAGE -->
-    <img src="https://media.stsci.edu/uploads/image/thumbnail/4150/STSCI-H-p1821a-t-400x400.png"><br>
-
-    <!-- LIKE COUNTER -->
-    <p>This image has <span id="like-value"></span> likes</p>
-
-    <!-- BUTTON -->
-    <button id="like-button">Like</button>
->>>>>>> .merge_file_bqoV6n
 
     <!-- JQUERY LINK-->
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -142,15 +118,9 @@
         // =====================================
         // On click event that adds a like to the like counter
         $("#like-button").on("click", function () {
-<<<<<<< .merge_file_al8aCe
             likes++;
             database.ref('image1/likes').set({
                 likes: likeCounter
-=======
-            likeCounter++;
-            database.ref().set({
-                likeCount: likeCounter
->>>>>>> .merge_file_bqoV6n
             });
         });
 
