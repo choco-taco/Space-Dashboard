@@ -1,2 +1,16 @@
+html, body {
+  height: 100%; }
+
+#map {
+  height: 200px;
+  padding-left: 100px;
+  padding-right: 100px; }
+  @media only screen and (min-width: 450px) {
+    #map {
+      height: 350px; } }
+
+.segment {
+  min-height: 400px; }
+
 #date-form #month-input, #date-form #day-input {
   width: 55px; }
