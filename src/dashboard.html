@@ -25,62 +25,50 @@
 <body>
 
 
-
-
-    <div class="pimg1">
-        <div class="ptext">
-            <span>
-                Space Dashboard
-            </span>
-        </div>
-        <div class="ui breadcrumb">
-                
-                <div clasv s="active section"><a href="../src/landing.html">Home</a></div>
-              </div>
-    </div>
-
-
-    <section class="section section-light">
-        <div class="sidenav">
-                <div class="logo">
-                        <img src="./assets/images/choco.jpg" alt="taco">
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-            <a href="#main" class="photo-btn">
+    <div class="container">
+        <div class="ui secondary pointing menu">
+            <a class="active item" data-tab="first">
                 Photo Of The Day
             </a>
-            <a href="#main" class="asteroids-btn">Asteriods
+            <a class="item" data-tab="second">
+                Asteroids
             </a>
-            <a href="#main" class="mars-btn">
+            <a class="item" data-tab="third">
                 Mars Rover Photos
             </a>
-            <a href="#map" class="iss-btn"> ISS Current Location</a>
-
+            <a class="item" data-tab="fourth">
+                ISS
+            </a>
         </div>
-        <div id="main">
-            <p>this is where we will dump info from clicking links on the left</p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, obcaecati pariatur nihil voluptas error
-                molestiae. Labore perferendis beatae ut quaerat libero officia harum cum error, perspiciatis dolorum,
-                inventore, vitae architecto!</p>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officiis quis similique quos tempora
-                cumque dolores deserunt rem rerum natus consequuntur harum consectetur voluptatibus, iure dicta vero!
-                Perferendis, maiores repellat!</p>
+        <div class="jumbotron">
+
+            <h1 class="header">Dashboard</h1>
         </div>
-    </section>
 
-    <div class="pimg2"></div>
 
-    <section class="section section-dark">
-        <div class="map-container">
-            <div id='map'></div>
+        <div class="ui tab segment" data-tab="first">
+            Photo of the day section
         </div>
-    </section>
 
 
+        <div class="ui tab segment" data-tab="second">asteroids section</div>
+
+
+        <div class="ui tab segment" data-tab="third">mars rover section</div>
+
+
+
+        <div class="ui tab segment" data-tab="fourth">iss map</div>
+
+
+
+
+
+    </div>
+
+    
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -92,11 +80,6 @@
     <script src="assets/semantic-ui/semantic.min.js"></script>
 
     <script src="assets/js/javascript.js"></script>
-
-    <!-- maps api -->
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd7dswcOw51TCCtKXbcWnIYO8BVNFtMEE&callback=initMap">
-        </script>
 
 </body>
 
