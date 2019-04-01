@@ -67,12 +67,21 @@
                 var div = $('<div>');
                 var camera = $('<h4>');
                 var date = $('<p>');
+                var like = $('<a>', {
+                    'class': 'like',
+                    'text': 'Like',
+                    'attr': {
+                        'href': '#',
+                        'onclick': 'return false;',
+                        'data-id': captionId,
+                    }
+                });
 
                 div.attr('id', captionId);
                 div.addClass('d-none');
                 camera.text(imageObj.camera.full_name);
                 date.text(imageObj.earth_date);
-                div.append(camera, date);
+                div.append(camera, date, like);
     
                 $('#captions').append(div);
                 
@@ -104,6 +113,13 @@
 
             }
 
+            var script = $('<script>', {
+                'attr': {
+                    'src': 'assets/js/firebase.js'
+                }
+            });
+            $('body').append(script);
+
         } else {
 
             $('#rover').text(rover);
@@ -133,5 +149,5 @@
         }
         
     });
-    
+
 }())
