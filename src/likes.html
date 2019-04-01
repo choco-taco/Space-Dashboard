@@ -79,53 +79,36 @@
         // VARIABLES
         // =====================================
         var database = firebase.database();
-        var likes = 0;
+        var likeCounter = 0;
         var likeCounter2 = 0;
-
-        // TEST CODE
-        // =====================================
-
-        window.localStorage.setItem('likes', 'answer_1,answer_2');
-
-        var private FIREBASE_COLLECTION = 'faq-likes';
-        // Here we have our local faq questions and answers
-        private faqEntries = [...];
-        constructor(private firebase: AngularFirestore) {
-            // Use a separate collection per environment
-            this.FIREBASE_COLLECTION += `:${env.name}`
-        }
-        // Load total likes on page load
-        this.firebase.collection(this.FIREBASE_COLLECTION).snapshotChanges().subscribe(results => {
-            // Returns the stored objects along with some metadata
-            // Map the likes to the local faq entries
-            items.forEach(firebaseItem => {
-                const questionID = firebaseItem.payload.doc.id;
-                const likes = firebaseItem.payload.doc.data()['likes'];
-
-                this.faqEntries.find(entry => entry.questionID === questionID).likes = likes;
-            });
-        });
-
-        // Still in the same component as above.
-        // getID() will return the ID for the selected question
-        const questionID = getID();
-        this.firebase.doc(`${this.FIREBASE_COLLECTION}/${questionID}`).set({
-            likes: prevLikes + 1,
-            lastUpdate: new Date().toISOString()
-        });
+        var likeCounter3 = 0;
 
         // FUNCTIONS
         // =====================================
         // On click event that adds a like to the like counter
         $("#like-button").on("click", function () {
-            likes++;
+            likeCounter++;
             database.ref('image1/likes').set({
-                likes: likeCounter
+                likeCount: likeCounter
+            });
+        });
+
+        $("#like-button-2").on("click", function () {
+            likeCounter2++;
+            database.ref('image2/likes').set({
+                likeCount2: likeCounter2
+            });
+        });
+
+        $("#like-button-3").on("click", function () {
+            likeCounter3++;
+            database.ref('image3/likes').set({
+                likeCount3: likeCounter3
             });
         });
 
         // Displays the likes on the page
-        database.ref().on("value", function (snapshot) {
+        database.ref('image1/likes').on("value", function (snapshot) {
             console.log(snapshot.val());
             likeCounter = snapshot.val().likeCount;
             $("#like-value").text(snapshot.val().likeCount);
@@ -133,6 +116,23 @@
             console.log("The read failed: " + errorObject.code);
         });
 
+        // Displays the likes on the page
+        database.ref('image2/likes').on("value", function (snapshot) {
+            console.log(snapshot.val());
+            likeCounter2 = snapshot.val().likeCount2;
+            $("#like-value-2").text(snapshot.val().likeCount2);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
+
+        // Displays the likes on the page
+        database.ref('image3/likes').on("value", function (snapshot) {
+            console.log(snapshot.val());
+            likeCounter3 = snapshot.val().likeCount3;
+            $("#like-value-3").text(snapshot.val().likeCount3);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
 
     </script>
 
