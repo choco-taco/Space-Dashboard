@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Space Dashboared - Most Likes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Most Liked Photos</h1>
+                <p class="lead">Vote on your favorite photo by clicking the like button!.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <!-- IMAGE -->
+                <h2>Image 01</h2>
+                <!-- LIKE COUNTER -->
+                <p>This image has <span id="like-value"></span> likes</p>
+                <img src="https://media.stsci.edu/uploads/image/thumbnail/4280/STSCI-H-p1848e-t-400x400.png" class="img-thumbnail"><br>
+                <!-- BUTTON -->
+                <button id="like-button">Like</button><br>
+            </div>
+
+            <div class="col-4">
+                <!-- IMAGE -->
+                <h2>Image 02</h2>
+                <!-- LIKE COUNTER -->
+                <p>This image has <span id="like-value-2"></span> likes</p>
+                <img src="http://imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/29886/STScI-H-p1642a-t400x400.png"
+                    class="img-thumbnail"><br>
+                <!-- BUTTON -->
+                <button id="like-button-2">Like</button>
+            </div>
+
+            <div class="col-4">
+                <!-- IMAGE -->
+                <h2>Image 03</h2>
+                <!-- LIKE COUNTER -->
+                <p>This image has <span id="like-value-3"></span> likes</p>
+                <img src="http://imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/29924/STSCI-H-p1708a-t-400x400.png"
+                    class="img-thumbnail"><br>
+                <!-- BUTTON -->
+                <button id="like-button-3">Like</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JQUERY LINK-->
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+
+    <!-- SEMANTIC -->
+    <script src="semantic/dist/semantic.min.js"></script>
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        var config = {
+            apiKey: "AIzaSyDeI39A4uLJgPOG0w7nXrJTk0hDZGljUOA",
+            authDomain: "space-dashboard-2a85d.firebaseapp.com",
+            databaseURL: "https://space-dashboard-2a85d.firebaseio.com",
+            projectId: "space-dashboard-2a85d",
+            storageBucket: "space-dashboard-2a85d.appspot.com",
+            messagingSenderId: "954177421658"
+        };
+
+        firebase.initializeApp(config);
+
+        // VARIABLES
+        // =====================================
+        var database = firebase.database();
+        var likeCounter = 0;
+        var likeCounter2 = 0;
+        var likeCounter3 = 0;
+
+        // FUNCTIONS
+        // =====================================
+        // On click event that adds a like to the like counter
+        $("#like-button").on("click", function () {
+            likeCounter++;
+            database.ref('image1/likes').set({
+                likeCount: likeCounter
+            });
+        });
+
+        $("#like-button-2").on("click", function () {
+            likeCounter2++;
+            database.ref('image2/likes').set({
+                likeCount2: likeCounter2
+            });
+        });
+
+        $("#like-button-3").on("click", function () {
+            likeCounter3++;
+            database.ref('image3/likes').set({
+                likeCount3: likeCounter3
+            });
+        });
+
+        // Displays the likes on the page
+        database.ref('image1/likes').on("value", function (snapshot) {
+            console.log(snapshot.val());
+            likeCounter = snapshot.val().likeCount;
+            $("#like-value").text(snapshot.val().likeCount);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
+
+        // Displays the likes on the page
+        database.ref('image2/likes').on("value", function (snapshot) {
+            console.log(snapshot.val());
+            likeCounter2 = snapshot.val().likeCount2;
+            $("#like-value-2").text(snapshot.val().likeCount2);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
+
+        // Displays the likes on the page
+        database.ref('image3/likes').on("value", function (snapshot) {
+            console.log(snapshot.val());
+            likeCounter3 = snapshot.val().likeCount3;
+            $("#like-value-3").text(snapshot.val().likeCount3);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
