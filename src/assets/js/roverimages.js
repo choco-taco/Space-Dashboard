@@ -18,8 +18,6 @@
 
 (function (){
 
-    
-
     const db = firebase.firestore();
     const fbImages = db.collection('liked_images');
 
@@ -45,7 +43,6 @@
         }).then(function(response) {
             renderRoverImages(response);
         });
-
     }
 
     function renderRoverImages(imagesObj) {
@@ -145,8 +142,25 @@
             $('#back-to-top-button').addClass('d-none');
 
         }
-
     }
+
+    function topPhoto() {
+        fbImages.get().then(function(snapshot) {
+            var topPhoto = {
+                id: '',
+                likes: 0
+            };
+            snapshot.forEach(function(doc) {
+                if (doc.data().likes > topPhoto.likes) {
+                    topPhoto.id = doc.id;
+                    topPhoto.likes = doc.data().likes;
+                }
+            });
+            console.log(topPhoto.likes);
+        });
+    }
+
+    topPhoto();
 
     $('#rover-button').on('click', function() {
 

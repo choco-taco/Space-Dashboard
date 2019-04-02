@@ -68,6 +68,23 @@ body {
     }
 }
 
+#mobile-tabs {
+    .item {
+        padding: 10px;
+    }
+    @media only screen and (min-width: 500px) {
+        display: none;
+    }
+}
+#desktop-tabs {
+    display: none;
+    @media only screen and (min-width: 500px) {
+        display: flex;
+    }
+}
+
+
+
 .segment {
     min-height: 400px;
 }

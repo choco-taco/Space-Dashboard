@@ -54,6 +54,19 @@ html, body {
     #map {
       height: 350px; } }
 
+#mobile-tabs .item {
+  padding: 10px; }
+
+@media only screen and (min-width: 500px) {
+  #mobile-tabs {
+    display: none; } }
+
+#desktop-tabs {
+  display: none; }
+  @media only screen and (min-width: 500px) {
+    #desktop-tabs {
+      display: flex; } }
+
 .segment {
   min-height: 400px; }
 
