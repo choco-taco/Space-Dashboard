@@ -81,13 +81,17 @@
                     var div = $('<div>');
                     var camera = $('<h4>');
                     var date = $('<p>');
-                    var likes = $('<span>', {
+                    var like = $('<a>', {
+                        'class': 'like',
+                        'html': '<i class="thumbs up outline icon"></i>',
+                        'data-id': imageId,
+                    });
+                    var likesSpan = $('<span>', {
                         'class': 'likes',
                         'text': fb_likes,
                     });
-                    var like = $('<a>', {
-                        'class': 'like',
-                        'text': 'Like | Likes: ',
+                    var likes = $('<p>', {
+                        'text': 'Likes: ',
                         'attr': {
                             'href': '#',
                             'onclick': 'return false;',
@@ -99,8 +103,8 @@
                     div.addClass('d-none');
                     camera.text(imageObj.camera.full_name);
                     date.text(imageObj.earth_date);
-                    like.append(likes);
-                    div.append(camera, date, like);
+                    likes.append(likesSpan);
+                    div.append(camera, date, like, likes);
         
                     $('#captions').append(div);
                     
