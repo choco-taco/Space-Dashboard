@@ -1,6 +1,6 @@
 (function(){
 
-    const config = {
+    var config = {
         apiKey: "AIzaSyCDN32mT8qBqa0luHO7yesQ8vvD6cyrj34",
         authDomain: "first-e29ce.firebaseapp.com",
         databaseURL: "https://first-e29ce.firebaseio.com",
@@ -11,31 +11,47 @@
       
     firebase.initializeApp(config);
 
-    const database = firebase.firestore();
+    const db = firebase.firestore();
+    const fbImages = db.collection('liked_images');
 
-    const myImages = database.collection('liked_images');
+    $(document.body).on('click', '.like', function() {
+        var parsedImages = JSON.parse(window.localStorage.getItem('likedImages'))
+        var likedImages = parsedImages != null ? parsedImages : [];
+        var id = $(this).attr('data-id');
 
-    $(document).ready(function() {
-        
-        myImages.get().then(function(snapshot) {
-            snapshot.forEach(function(doc) {
-                console.log(doc.id, doc.data().likes);
-            });
-        });
-    });
-
-    $('.like').on('click', function() {
-        var currentImage =  myImages.doc('first_image');
-        // $(this).attr('data-id')
-        console.log('a');
-        if (currentImage.exists()) {
-        console.log('b');
-            currentImage.set({
-                likes: 3,
+        if (!likedImages.includes(id)) {
+            likedImages.push(id);
+            fbImages.doc(id).get().then(function(snapshot) {
+                if (snapshot.exists) {
+                    var increment = snapshot.data().likes + 1;
+                    fbImages.doc(id).update({
+                        likes: increment
+                    });
+                } else {
+                    fbImages.doc(id).set({
+                        likes: 1
+                    })
+                }
             });
         } else {
-
+            fbImages.doc(id).get().then(function(snapshot) {
+                if (snapshot.exists) {
+                    var increment = snapshot.data().likes - 1;
+                    fbImages.doc(id).update({
+                        likes: increment
+                    });
+                }
+            });
+            var index = likedImages.indexOf(id);
+            likedImages.splice(index, 1);
         }
+        window.localStorage.setItem('likedImages', JSON.stringify(likedImages));
+    });
+
+    fbImages.onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+            $(`a[data-id=${change.doc.id}] .likes`).text(change.doc.data().likes)
+        });
     });
 
 }())

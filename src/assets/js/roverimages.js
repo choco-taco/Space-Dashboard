@@ -18,6 +18,11 @@
 
 (function (){
 
+    
+
+    const db = firebase.firestore();
+    const fbImages = db.collection('liked_images');
+
     var rover;
     var sol;
     var page;
@@ -29,9 +34,9 @@
         $('#animated-thumbnails').lightGallery();
     }
 
-    function reqRoverImages(rover, sol) {
+    function reqRoverImages(rover, sol, pg) {
 
-        var urlQuery = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=${page}&api_key=2f8aJAjNNh8BekW6ZgjWpdqXBhrtZoQCX12mfhla`;
+        var urlQuery = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=${pg}&api_key=2f8aJAjNNh8BekW6ZgjWpdqXBhrtZoQCX12mfhla`;
         console.log(urlQuery);
 
         $.ajax({
@@ -39,7 +44,7 @@
             method: 'GET',
         }).then(function(response) {
             renderRoverImages(response);
-        })
+        });
 
     }
 
@@ -56,69 +61,80 @@
         var imagesArr = imagesObj.photos;
 
         if (imagesArr.length) {
-        
-            $('#no-images-alert').addClass('d-none');
-            $('#animated-thumbnails').removeClass('h-auto');
 
-            imagesArr.forEach(function(imageObj) {
-    
-                var captionId = imageObj.id.toString();
-    
-                var div = $('<div>');
-                var camera = $('<h4>');
-                var date = $('<p>');
-                var like = $('<a>', {
-                    'class': 'like',
-                    'text': 'Like',
-                    'attr': {
-                        'href': '#',
-                        'onclick': 'return false;',
-                        'data-id': captionId,
-                    }
+            // Get firebase likes
+            fbImages.get().then(function(snapshot) {
+                // Loop through snapshot
+                // And store image ids and likes in an object
+                var existingLikedImages = {};
+                snapshot.forEach(function(doc) {
+                    existingLikedImages[doc.id] = doc.data().likes;
+                });
+        
+                $('#no-images-alert').addClass('d-none');
+                $('#animated-thumbnails').removeClass('h-auto');
+
+                imagesArr.forEach(function(imageObj) {
+        
+                    var imageId = imageObj.id;
+
+                    var fb_likes = Object.getOwnPropertyNames(existingLikedImages)
+                                    .includes(imageId.toString()) ? existingLikedImages[imageId] : 0;
+        
+                    var div = $('<div>');
+                    var camera = $('<h4>');
+                    var date = $('<p>');
+                    var likes = $('<span>', {
+                        'class': 'likes',
+                        'text': fb_likes,
+                    });
+                    var like = $('<a>', {
+                        'class': 'like',
+                        'text': 'Like | Likes: ',
+                        'attr': {
+                            'href': '#',
+                            'onclick': 'return false;',
+                            'data-id': imageId,
+                        }
+                    });
+
+                    div.attr('id', imageId);
+                    div.addClass('d-none');
+                    camera.text(imageObj.camera.full_name);
+                    date.text(imageObj.earth_date);
+                    like.append(likes);
+                    div.append(camera, date, like);
+        
+                    $('#captions').append(div);
+                    
+                    var anchor = $('<a>');
+                    var img = $('<img>');
+
+                    anchor.attr('href', imageObj.img_src);
+                    anchor.attr('data-sub-html', '#' + imageId);
+                    img.attr('src', imageObj.img_src);
+        
+                    anchor.append(img);
+                    $('#animated-thumbnails').append(anchor);
+
                 });
 
-                div.attr('id', captionId);
-                div.addClass('d-none');
-                camera.text(imageObj.camera.full_name);
-                date.text(imageObj.earth_date);
-                div.append(camera, date, like);
-    
-                $('#captions').append(div);
+                createLightGallery();
+                $(".mygallery").justifiedGallery();
                 
-                var anchor = $('<a>');
-                var img = $('<img>');
+                if (imagesArr.length === 25) {
 
-                anchor.attr('href', imageObj.img_src);
-                anchor.attr('data-sub-html', '#' + captionId);
-                img.attr('src', imageObj.img_src);
-    
-                anchor.append(img);
-                $('#animated-thumbnails').append(anchor);
+                    $('#rover-load-more-button').removeClass('d-none');
+                    $('#back-to-top-button').removeClass('d-none');
+                    morePhotos = true;
 
-            });
+                } else {
 
-            createLightGallery();
-            $(".mygallery").justifiedGallery();
-            
-            if (imagesArr.length === 25) {
+                    $('#rover-load-more-button').addClass('d-none');
+                    morePhotos = false;
 
-                $('#rover-load-more-button').removeClass('d-none');
-                $('#back-to-top-button').removeClass('d-none');
-                morePhotos = true;
-
-            } else {
-
-                $('#rover-load-more-button').addClass('d-none');
-                morePhotos = false;
-
-            }
-
-            var script = $('<script>', {
-                'attr': {
-                    'src': 'assets/js/firebase.js'
                 }
             });
-            $('body').append(script);
 
         } else {
 
@@ -137,7 +153,7 @@
         rover = $('input[name=rover]:checked').val();
         sol = $('#sol-input').val();
         page = 1;
-        reqRoverImages(rover, sol, page.toString());
+        reqRoverImages(rover, sol, page);
 
     });
 
@@ -145,9 +161,10 @@
 
         if (morePhotos) {
             page++;
-            reqRoverImages(rover, sol, page.toString());
+            console.log(page);
+            reqRoverImages(rover, sol, page);
         }
         
     });
-
+    
 }())
