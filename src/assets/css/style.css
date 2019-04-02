@@ -26,6 +26,12 @@ body {
   background-color: #fe6f5e;
 }
 
+.alert {
+  width:40%;    
+  margin: auto;
+}
+
+
 .lead {
   text-align: center;
 }
