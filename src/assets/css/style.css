@@ -55,13 +55,13 @@ html, body {
 #mobile-tabs .item {
   padding: 10px; }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 550px) {
   #mobile-tabs {
     display: none; } }
 
 #desktop-tabs {
   display: none; }
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 550px) {
     #desktop-tabs {
       display: flex; } }
 
