@@ -8,8 +8,6 @@
 //   - Lookup: https://api.nasa.gov/neo/rest/v1/neo/ 
 //   - Browse: https://api.nasa.gov/neo/rest/v1/neo/browse/
 
-
-
 (function(){
 
     $(document).ready(function() {
@@ -134,4 +132,4 @@
         reqPrevOrNextAsteroids($(this).data('next-link'));
     });
 
-}())
+}());

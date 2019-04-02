@@ -1,5 +1,5 @@
 body {
-    background:#353B3C url(""); 
+    background-color:#353B3C; 
     font-family: 'Kanit', sans-serif;
   }
   
@@ -61,8 +61,8 @@ body {
 
 #map {
     height: 200px;
-    padding-left: 100px;
-    padding-right: 100px;
+    // padding-left: 100px;
+    // padding-right: 100px;
     @media only screen and (min-width: 450px) {
         height: 350px;
     }
@@ -83,8 +83,6 @@ body {
     }
 }
 
-
-
 .segment {
     min-height: 400px;
 }
@@ -93,4 +91,42 @@ body {
     #month-input, #day-input {
         width: 55px;
     }
+}
+
+
+#top-button {
+display: inline-block;
+background-color: #fe6f5e;
+width: 50px;
+height: 50px;
+text-align: center;
+border-radius: 4px;
+position: fixed;
+bottom: 30px;
+right: 30px;
+transition: background-color .3s, 
+opacity .5s, visibility .5s;
+opacity: 0;
+visibility: hidden;
+z-index: 1000;
+}
+#top-button::after {
+content: "^";
+font-family: FontAwesome;
+font-weight: normal;
+font-style: normal;
+font-size: 2em;
+line-height: 50px;
+color: #fff;
+}
+#top-button:hover {
+cursor: pointer;
+background-color: #333;
+}
+#top-button:active {
+background-color: #555;
+}
+#top-button.show {
+opacity: 1;
+visibility: visible;
 }
