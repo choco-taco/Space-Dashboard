@@ -17,9 +17,7 @@
     <!-- Reset css -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Semantic UI -->
@@ -38,38 +36,51 @@
 
 <body>
     <div class="ui inverted menu fixed">
-        <a href="index2.html" class="item">
-            Home
-        </a>
-        <a href="dashboard2.html" class="active item" style="background-color: #fe6f5e">
-            Dashboard
-        </a>
-        <a class="item">
-            About
-        </a>
+        <div class="container">
+            <a href="index2.html" class="item">
+                    Home
+            </a>
+            <a href="dashboard2.html" class="active item" style="background-color: #fe6f5e">
+                Dashboard
+            </a>
+        </div>
     </div>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="jumbotron jumbotron-fluid mt-5" style="background-color: #f7f7f7">
-            <div class="container">
-                <img src="assets/images/spacedashboard.png" class="rounded mx-auto d-block">
-            </div>
+            <img src="assets/images/spacedashboard.png" class="img-fluid rounded mx-auto d-block">
         </div>
 
-        <div class="ui top attached tabular menu mt-5">
+        <div class="ui top attached tabular menu mt-5" id="mobile-tabs">
+            <!-- Mobile tabs -->
             <a class="active item" data-tab="first" id="menulink">
-                NASA
+                <img src="assets/images/icon-nasa.png" alt="">
             </a>
             <a class="item" data-tab="second" id="menulink">
-                Rover
+                <img src="assets/images/icon-marsrover.png" alt="">
             </a>
             <a class="item" data-tab="third" id="menulink">
-                Asteroids
+                <img src="assets/images/icon-asteroids.png" alt="">
             </a>
             <a class="item" data-tab="fourth" id="menulink">
-                SpaceX
+                <img src="assets/images/icon-iss.png" alt="">
             </a>
         </div>
+        <div class="ui top attached tabular menu mt-5" id="desktop-tabs">
+                <!-- Desktop tabs -->
+                <a class="active item" data-tab="first" id="menulink">
+                    NASA
+                </a>
+                <a class="item" data-tab="second" id="menulink">
+                    Rover
+                </a>
+                <a class="item" data-tab="third" id="menulink">
+                    Asteroids
+                </a>
+                <a class="item" data-tab="fourth" id="menulink">
+                    SpaceX
+                </a>
+            </div>
 
         <!-- NASA PHOTO -->
 
@@ -77,17 +88,11 @@
             <div class="row mt-5">
                 <div class="col col-lg-10 mx-auto">
                     <img src="assets/images/icon-nasa.png" class="rounded mx-auto d-block">
-                    <h1 class="display-3">Photo of the Day <span id="next-launch"></span></h1>
+                    <h1 class="display-3">Photo of the Day</h1>
                     <p class="lead text-center">Check out NASA's photo of the day</p>
-                    <img src="https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/iss059e005744.jpg"
-                        class="rounded mx-auto d-block">
-                    </h4>
-                </div>
-            </div>
-            <!-- FIREBASE LIKE A PHOTO SECTION -->
-            <div class="row">
-                <div class="col">
-
+                    <div id="apod">
+                        <!-- Picture of the day goes here -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,9 +105,13 @@
             <div class="row mt-5">
                 <div class="col col-lg-10 mx-auto">
                     <img src="assets/images/icon-marsrover.png" class="rounded mx-auto d-block">
-                    <h1 class="display-3">Mars Rover Photos <span id="next-launch"></span></h1>
+                    <h1 class="display-3">Mars Rover Photos</h1>
                     <p class="lead text-center">View images taken by any of the three rovers on Mars based on a Sol
                         date.</p>
+                    <!-- FIREBASE LIKE A PHOTO SECTION -->
+                    <div id="top-photo">
+
+                    </div>
                     <h4 class="ui horizontal divider header">
                         <i class="rocket icon my-5"></i>
                         Photos
@@ -182,7 +191,7 @@
                 <div class="col col-lg-10 mx-auto">
                     <div class="container">
                         <img src="assets/images/icon-asteroids.png" class="rounded mx-auto d-block">
-                        <h1 class="display-3">Approaching Asteroids <span id="next-launch"></span></h1>
+                        <h1 class="display-3">Approaching Asteroids</h1>
                         <p class="lead">Pick a date and see the list of asteroids cloest to Earth that day.</p>
                     </div>
 
@@ -235,7 +244,7 @@
                 <div class="col col-lg-10 mx-auto">
                     <div class="container">
                         <img src="assets/images/icon-iss.png" class="rounded mx-auto d-block">
-                        <h1 class="display-3">SpaceX Info <span id="next-launch"></span></h1>
+                        <h1 class="display-3">SpaceX Info</h1>
                         <p class="lead">
                             Stay up to date on SpaceX's launches, missions, and current rocket inventory.
                         </p>
@@ -246,27 +255,38 @@
                               <a href="#launch-box"><button class="ui secondary button my-2" id="isslaunches-button">
                                 Launches
                             </button></a> 
-                        <a href="#missions"><button class="ui secondary button my-2" id="issmission-button">
+                        <a href="#mission-box"><button class="ui secondary button my-2" id="issmission-button">
                                 Mission
                             </button></a> 
-                        <a href="#rockets"><button class="ui secondary button my-2" id="issrocket-button">
+                        <a href="#rocket-box"><button class="ui secondary button my-2" id="issrocket-button">
                                 Rockets
                             </button></a> 
                         </div>
-                        <h4 class="ui horizontal divider header">
-                            <i class="rocket icon my-5"></i>
-                            Map
-                        </h4>
-                        <div id="map"></div>
                     </div>
                 </div>
             </div>
 
+            <!-- Map -->
+            
+            <div class="container">
+                    <!-- <div class="row py-5">
+                        <h4 class="ui horizontal divider header">
+                                <i class="rocket icon my-5"></i>
+                                Map
+                            </h4>
+                        <div class="col col-md-9 mx-auto">
+                            
+                        </div>
+                    </div> -->
+                    
+                </div>
+                <div id="map"></div>
+
             <!-- Launches -->
-            <div class="row">
+            <div class="row" id="launch-box">
                 <div class="col col-lg-10 mx-auto">
                     <h4 class="ui horizontal divider header">
-                        <i class="rocket icon my-5" id=launch-box></i>
+                        <i class="rocket icon my-5"></i>
                         Launches
                     </h4>
                     <h3 class="text-center my-5">Next launch in
@@ -293,10 +313,10 @@
             
 
             <!-- Missions -->
-            <div class="row">
+            <div class="row" id="mission-box">
                 <div class="col col-lg-10 mx-auto py-5">
-                    <h4 class="ui horizontal divider header">
-                        <i class="rocket icon my-5"></i>
+                    <h4 class="ui horizontal divider header" >
+                        <i class="rocket icon my-5" ></i>
                         Missions
                     </h4>
                     <div id="missions">
@@ -307,7 +327,7 @@
 
         
             <!-- Rockets -->
-            <div class="row">
+            <div class="row" id="rocket-box">
                 <div class="col col-lg-10 mx-auto">
                     <h4 class="ui horizontal divider header">
                         <i class="rocket icon my-5"></i>
@@ -335,15 +355,20 @@
                 </div>
             </div>
         </div>
-                   <!-- Scroll Top Button -->
-                   <a id="top-button"></a>
-
+        <!-- Scroll Top Button -->
+        <a id="top-button"></a>
     </div>
-
+  <!-- footer -->
+    <div class="footer">
+            <footer> copyright 2019 choco taco &copy;
+            </footer>
+            
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
         </script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <!-- Leaflet -->
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
@@ -366,8 +391,12 @@
     <script src="assets/justified-gallery/jquery.justifiedGallery.min.js"></script>
 
     <!-- My scripts -->
+    <!-- Firebase -->
+    <script src="assets/js/firebase.js"></script>
     <!-- Leaflet Map -->
     <script src="assets/js/leaflet.js"></script>
+    <!-- Picture of the day -->
+    <script src="assets/js/apod.js"></script>
     <!-- Rover images -->
     <script src="assets/js/roverimages.js"></script>
     <!-- Asteroid table -->
