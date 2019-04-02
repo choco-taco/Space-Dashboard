@@ -6,171 +6,283 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Reset css -->
     <link rel="stylesheet" href="assets/css/reset.css">
-    
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Semantic UI -->
     <link rel="stylesheet" href="assets/semantic-ui/semantic.min.css">
+    <!-- Light gallery css -->
+    <link type="text/css" rel="stylesheet" href="assets/lightgallery-js/dist/css/lightgallery.min.css"/>
+    <!-- Justified gallery -->
+    <link rel="stylesheet" href="assets/justified-gallery/justifiedGallery.min.css">
+    <!-- Custom css -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-        <body class="pushable">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col col-md-9 mx-auto">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
 
-                <!-- Following Menu -->
-                <div class="ui large top fixed menu transition hidden">
-                  <div class="ui container">
-                    <a class="active item">Home</a>
-                    <a href="./dashboard.html" class="item">Dasboard</a>
-                    <a class="item">Company</a>
-                    <a class="item">Careers</a>
-                    <div class="right menu">
-                      <div class="item">
-                        <a class="ui button">Log in</a>
-                      </div>
-                      <div class="item">
-                        <a class="ui primary button">Sign Up</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Sidebar Menu -->
-                <div class="ui vertical inverted sidebar menu left">
-                  <a class="active item">Home</a>
-                  <a class="item">Work</a>
-                  <a href="./dashboard.html" class="item">Dasboard</a>
-                  <a class="item">Careers</a>
-                  <a class="item">Login</a>
-                  <a class="item">Signup</a>
-                </div>
-                
-                
-                <!-- Page Contents -->
-                <div class="pusher">
-                  <div class="ui inverted vertical masthead center aligned segment">
-                
-                    <div class="ui container">
-                      <div class="ui large secondary inverted pointing menu">
-                        <a class="toc item">
-                          <i class="sidebar icon"></i>
-                        </a>
-                        <a class="active item">Home</a>
-                        <a href="./dashboard.html" class="item">Dasboard</a>
-                        <a class="item">Company</a>
-                        <a class="item">Careers</a>
-                        <div class="right item">
-                          <a class="ui inverted button">Log in</a>
-                          <a class="ui inverted button">Sign Up</a>
-                        </div>
-                      </div>
-                    </div>
-                
-                    <div class="ui text container">
-                      <h1 class="ui inverted header">
-                        Imagine-a-Company
-                      </h1>
-                      <h2>Do whatever you want when you want to.</h2>
-                      <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
-                    </div>
-                
-                  </div>
-                
-                  <div class="ui vertical stripe segment">
-                    <div class="ui middle aligned stackable grid container">
-                      <div class="row">
-                        <div class="eight wide column">
-                          <h3 class="ui header">We Help Companies and Companions</h3>
-                          <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
-                          <h3 class="ui header">We Make Bananas That Can Dance</h3>
-                          <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
-                        </div>
-                        <div class="six wide right floated column">
-                          <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="center aligned column">
-                          <a class="ui huge button">Check Them Out</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                
-                
-                  <div class="ui vertical stripe quote segment">
-                    <div class="ui equal width stackable internally celled grid">
-                      <div class="center aligned row">
-                        <div class="column">
-                          <h3>"What a Company"</h3>
-                          <p>That is what they all say about us</p>
-                        </div>
-                        <div class="column">
-                          <h3>"I shouldn't have gone with their competitor."</h3>
-                          <p>
-                            <img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <div class="ui vertical stripe segment">
-                    <div class="ui text container">
-                      <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
-                      <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
-                      <a class="ui large button">Read More</a>
-                      <h4 class="ui horizontal header divider">
-                        <a href="#">Case Studies</a>
-                      </h4>
-                      <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-                      <p>Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
-                      <a class="ui large button">I'm Still Quite Interested</a>
-                    </div>
-                  </div>
-                
-                
-                  <div class="ui inverted vertical footer segment">
-                    <div class="ui container">
-                      <div class="ui stackable inverted divided equal height stackable grid">
-                        <div class="three wide column">
-                          <h4 class="ui inverted header">About</h4>
-                          <div class="ui inverted link list">
-                            <a href="#" class="item">Sitemap</a>
-                            <a href="#" class="item">Contact Us</a>
-                            <a href="#" class="item">Religious Ceremonies</a>
-                            <a href="#" class="item">Gazebo Plans</a>
-                          </div>
-                        </div>
-                        <div class="three wide column">
-                          <h4 class="ui inverted header">Services</h4>
-                          <div class="ui inverted link list">
-                            <a href="#" class="item">Banana Pre-Order</a>
-                            <a href="#" class="item">DNA FAQ</a>
-                            <a href="#" class="item">How To Access</a>
-                            <a href="#" class="item">Favorite X-Men</a>
-                          </div>
-                        </div>
-                        <div class="seven wide column">
-                          <h4 class="ui inverted header">Footer Header</h4>
-                          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                
-                
-                
-                </body>    
+    <div class="container">
 
+        <div class="ui top attached tabular menu pt-5">
+            <a class="active item"  data-tab="first">
+                Rover Photos
+            </a>
+            <a class="item" data-tab="second">
+                Asteroids
+            </a>
+            <a class="item" data-tab="third">
+                SpaceX
+            </a>
+        </div>
+        <div class="ui bottom attached tab segment active" data-tab="first">
+
+                <!-- Mars rover segment -->
+
+                <div class="row">
+                    <div class="col col-lg-10 mx-auto">
+                        <div class="jumbotron" style="background: white">
+                            <h1 class="display-4">Mars Rover Photos <span id="next-launch"></span></h1>
+                            <p class="lead">View images taken by any of the three rovers on Mars based on a Sol date.</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            
+                <div id="rover-segment">
+
+                    <div class="ui form pb-3 mx-auto">
+                        <div class="grouped fields">
+                            <div class="field text-center my-5">
+                                <!-- <label for="rover">Rover</label> -->
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="rover" checked="" tabindex="0" class="hidden" value="curiosity">
+                                    <label>Curiosity</label>
+                                </div>
+                                <div class="ui radio checkbox mx-2">
+                                    <input type="radio" name="rover" tabindex="0" class="hidden" value="opportunity">
+                                    <label>Opportunity</label>
+                                </div>
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="rover" tabindex="0" class="hidden" value="spirit">
+                                    <label>Spirit</label>
+                                </div>
+                            </div>
+                            <div class="field text-center my-5">
+                                <!-- <label>Sol</label> -->
+                                <div class="ui input">
+                                    <div class="mx-auto">
+                                        <input type="number" min="0" placeholder="Sol" id="sol-input" style="max-width: 150px;">
+                                        <button class="ui secondary button mx-3" id="rover-button">
+                                        Load
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="my-2" id="gallery">
+                        <div id="captions">
+                        <!-- Image captions go here -->
+                        </div>
+                        <div class="mygallery" id="animated-thumbnails">
+                        <!-- Thumbnail gallery images go here -->
+                        </div>
+                        <p class="text-center d-none" id="no-images-alert">No images taken by <span id="rover"></span> on this sol.</p>
+                    </div>
+            
+                    <div class="text-center my-5">
+                        <button class="ui secondary button d-none" id="rover-load-more-button">
+                            Load more
+                        </button>
+                        <button class="ui secondary button d-none" id="back-to-top-button">
+                            Back to top
+                        </button>
+                    </div>
+                </div>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="second">
+            <!-- Asteroids segment -->
+
+            <div class="row">
+                <div class="col col-lg-10 mx-auto">
+                    <div class="jumbotron" style="background: white">
+                        <h1 class="display-4">Approaching Asteroids <span id="next-launch"></span></h1>
+                        <p class="lead">Pick a date and see the list of asteroids cloest to Earth that day.</p>
+                    </div>
+
+                    <div id="asteroids-segment">
+                        <div class="table-buttons text-center py-1">
+                            <div class="ui input d-block my-2" id="date-form">
+                                <input id="date-input" type="date" placeholder="YYYY" value="2019-03-27">
+                                <button class="ui secondary button ml-2" id="date-button">
+                                Load
+                                </button>
+                            </div>
+                        </div>
+                        <table class="ui celled table my-4" id="asteroids-table">
+                            <thead id="asteroids-table-head">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Esitmated Diameter</th>
+                                    <th>Closest Approach Date</th>
+                                    <th>Relative Velocity</th>
+                                    <th>Miss Distance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="asteroids-table-body">
+                                <!-- Asteroids go here -->
+                            </tbody>
+                        </table>
+                        <div class="table-buttons text-center">
+                            <button class="ui secondary button my-2" id="prev-button">
+                            Prev
+                            </button>
+                            <button class="ui secondary button my-2" id="next-button">
+                            Next
+                            </button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="ui bottom attached tab segment mb-3" data-tab="third">
+            <!-- SpaceX segment -->
+
+            <!-- SpaceX header -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto">
+                        <div class="jumbotron" style="background: white">
+                            <h1 class="display-4">SpaceX Info <span id="next-launch"></span></h1>
+                            <p class="lead">
+                                Stay up to date on SpaceX's launches, missions, and current rocket inventory.
+                            </p>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Launches -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        Launches
+                    </h4>
+                    <h3 class="text-center my-5">Next launch in 
+                        <br> 
+                        <span class="display-4" id="launch-time">278:47:25</span>
+                        </h3>
+                    <h3>Upcoming launches</h3>
+                    <table class="ui celled table">
+                        <thead>
+                            <tr><th>Name</th>
+                            <th>Date</th>
+                            <th>Rocket</th>
+                            <th>Total payload</th>
+                        </tr></thead>
+                        <tbody id="upcoming-launches">
+                            <!-- Launches go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Missions -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto py-5">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        Missions
+                    </h4>
+                    <div id="missions">
+                        <!-- Missions go here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rockets -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        Rockets
+                    </h4>
+                    <div class="py-5">
+                        <h3>Rockets</h3>
+                        <table class="ui celled table">
+                            <thead>
+                                <tr><th>Name</th>
+                                <th>Height</th>
+                                <th>Diameter</th>
+                                <th>Mass</th>
+                                <th>Success rate</th>
+                                <th>Cost per launch</th>
+                                <th>Active</th>
+                            </tr></thead>
+                            <tbody id="rockets">
+                                <!-- Rockets go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
             crossorigin="anonymous">
     </script>
-    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <!-- Moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+    <!-- Boostrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Sematic UI -->
     <script src="assets/semantic-ui/semantic.min.js"></script>
-    <script src="assets/js/javascript.js"></script>
+    <!-- Call semantic methods -->
+    <script src="assets/js/sematic-ui.js"></script>
+    <!-- Lightgallery -->
+    <script src="assets/lightgallery-js/dist/js/lightgallery-all.min.js"></script>
+    <!-- Lightgallery plugins -->
+    <!-- <script src="assets/lightgallery-js/modules/lg-thumbnail.min.js"></script> -->
+    <!-- Justified gallery -->
+    <script src="assets/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    <!-- My scripts -->
+    <!-- Firebase -->
+    <script src="assets/js/firebase.js"></script>
+    <!-- Leaflet Map -->
+    <script src="assets/js/leaflet.js"></script>
+    <!-- Rover images -->
+    <script src="assets/js/roverimages.js"></script>
+    <!-- Asteroid table -->
+    <script src="assets/js/asteroiddata.js"></script>
+    <!-- ISS data -->
+    <script src="assets/js/iss.js"></script>
+    <!-- Scroll top -->
+    <script src="assets/js/scrolltop.js"></script>
+    <!-- SpaceX -->
+    <script src="assets/js/spacex.js"></script>
 </body>
 </html>

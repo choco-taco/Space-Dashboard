@@ -7,6 +7,7 @@
 //   - Feed: https://api.nasa.gov/neo/rest/v1/feed?start_date=START_DATE&end_date=END_DATE
 //   - Lookup: https://api.nasa.gov/neo/rest/v1/neo/ 
 //   - Browse: https://api.nasa.gov/neo/rest/v1/neo/browse/
+<<<<<<< HEAD:src/assets/js/javascript.js
 // - Mars Rovers
 // 
 //   Abbr 	    Camera 	                    Curiousity Opportunity Spirit
@@ -29,24 +30,10 @@
 /*$('.ui.radio.checkbox')
   .checkbox()
 ;
+=======
+>>>>>>> origin/master:src/assets/js/asteroiddata.js
 
-(function(){
 
-    function reqRoverImages(rover, sol) {
-        
-        var urlQuery = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=2f8aJAjNNh8BekW6ZgjWpdqXBhrtZoQCX12mfhla`;
-
-        $.ajax({
-            url: urlQuery,
-            method: 'GET',
-        }).then(function(response) {
-
-        })
-    }
-
-    // function renderRoverImages();
-
-}())
 
 (function(){
 

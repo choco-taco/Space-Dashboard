@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon//favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Reset css -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Semantic UI -->
+    <link rel="stylesheet" href="assets/semantic-ui/semantic.min.css">
+    <!-- Light gallery css -->
+    <link type="text/css" rel="stylesheet" href="assets/lightgallery-js/dist/css/lightgallery.min.css" />
+    <!-- Justified gallery -->
+    <link rel="stylesheet" href="assets/justified-gallery/justifiedGallery.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Kanit" rel="stylesheet">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="ui inverted menu fixed">
+        <a href="index2.html" class="item">
+            Home
+        </a>
+        <a href="dashboard2.html" class="active item" style="background-color: #fe6f5e">
+            Dashboard
+        </a>
+        <a class="item">
+            About
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid mt-5" style="background-color: #f7f7f7">
+            <div class="container">
+                <img src="assets/images/spacedashboard.png" class="rounded mx-auto d-block">
+            </div>
+        </div>
+
+        <div class="ui top attached tabular menu mt-5">
+            <a class="active item" data-tab="first" id="menulink">
+                NASA
+            </a>
+            <a class="item" data-tab="second" id="menulink">
+                Rover
+            </a>
+            <a class="item" data-tab="third" id="menulink">
+                Asteroids
+            </a>
+            <a class="item" data-tab="fourth" id="menulink">
+                SpaceX
+            </a>
+        </div>
+
+        <!-- NASA PHOTO -->
+
+        <div class="ui bottom attached tab segment active" data-tab="first">
+            <div class="row mt-5">
+                <div class="col col-lg-10 mx-auto">
+                    <img src="assets/images/icon-nasa.png" class="rounded mx-auto d-block">
+                    <h1 class="display-3">Photo of the Day <span id="next-launch"></span></h1>
+                    <p class="lead text-center">Check out NASA's photo of the day</p>
+                    <img src="https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/iss059e005744.jpg"
+                        class="rounded mx-auto d-block">
+                    </h4>
+                </div>
+            </div>
+            <!-- FIREBASE LIKE A PHOTO SECTION -->
+            <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui bottom attached tab segment" data-tab="second">
+
+            <!-- Mars rover segment -->
+
+            <div class="row mt-5">
+                <div class="col col-lg-10 mx-auto">
+                    <img src="assets/images/icon-marsrover.png" class="rounded mx-auto d-block">
+                    <h1 class="display-3">Mars Rover Photos <span id="next-launch"></span></h1>
+                    <p class="lead text-center">View images taken by any of the three rovers on Mars based on a Sol
+                        date.</p>
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        Photos
+                    </h4>
+                </div>
+            </div>
+
+            <div id="rover-segment">
+
+                <div class="ui form pb-3 mx-auto">
+
+                    <div class="alert alert-secondary" role="alert">
+                        Choose a SOL date (ex: 10, 416, 532) and enter in the box below. Or use this <a
+                            href="http://www-mars.lmd.jussieu.fr/mars/time/martian_time.html" target="blank">SOL date
+                            calculator</a>.
+
+                    </div>
+                    <div class="grouped fields">
+                        <div class="field text-center my-5">
+                            <!-- <label for="rover">Rover</label> -->
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="rover" checked="" tabindex="0" class="hidden"
+                                    value="curiosity">
+                                <label>Curiosity</label>
+                            </div>
+                            <div class="ui radio checkbox mx-2">
+                                <input type="radio" name="rover" tabindex="0" class="hidden" value="opportunity">
+                                <label>Opportunity</label>
+                            </div>
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="rover" tabindex="0" class="hidden" value="spirit">
+                                <label>Spirit</label>
+                            </div>
+                        </div>
+                        <div class="field text-center my-5">
+                            <!-- <label>Sol</label> -->
+                            <div class="ui input">
+                                <div class="mx-auto">
+                                    <input type="number" min="0" placeholder="Sol" id="sol-input"
+                                        style="max-width: 150px;">
+                                    <button class="ui secondary button mx-3" id="rover-button">
+                                        Load
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-2" id="gallery">
+                    <div id="captions">
+                        <!-- Image captions go here -->
+                    </div>
+                    <div class="mygallery" id="animated-thumbnails">
+                        <!-- Thumbnail gallery images go here -->
+                    </div>
+                    <p class="text-center d-none" id="no-images-alert">No images taken by <span id="rover"></span>
+                        on
+                        this sol.</p>
+                </div>
+
+                <div class="text-center my-5">
+                    <button class="ui secondary button d-none" id="rover-load-more-button">
+                        Load more
+                    </button>
+                    <button class="ui secondary button d-none" id="back-to-top-button">
+                        Back to top
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui bottom attached tab segment" data-tab="third">
+            <!-- Asteroids segment -->
+
+            <div class="row mt-5">
+                <div class="col col-lg-10 mx-auto">
+                    <div class="container">
+                        <img src="assets/images/icon-asteroids.png" class="rounded mx-auto d-block">
+                        <h1 class="display-3">Approaching Asteroids <span id="next-launch"></span></h1>
+                        <p class="lead">Pick a date and see the list of asteroids cloest to Earth that day.</p>
+                    </div>
+
+                    <div id="asteroids-segment">
+                        <h4 class="ui horizontal divider header">
+                            <i class="rocket icon my-5"></i>
+                            Asteroids
+                        </h4>
+                        <div class="table-buttons text-center py-1">
+                            <div class="ui input d-block my-2" id="date-form">
+                                <input id="date-input" type="date" placeholder="YYYY" value="2019-03-27">
+                                <button class="ui secondary button ml-2" id="date-button">
+                                    Load
+                                </button>
+                            </div>
+                        </div>
+                        <table class="ui celled table my-4" id="asteroids-table">
+                            <thead id="asteroids-table-head">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Esitmated Diameter</th>
+                                    <th>Closest Approach Date</th>
+                                    <th>Relative Velocity</th>
+                                    <th>Miss Distance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="asteroids-table-body">
+                                <!-- Asteroids go here -->
+                            </tbody>
+                        </table>
+                        <div class="table-buttons text-center">
+                            <button class="ui secondary button my-2" id="prev-button">
+                                Prev
+                            </button>
+                            <button class="ui secondary button my-2" id="next-button">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ui bottom attached tab segment mb-3" data-tab="fourth">
+            <!-- SpaceX segment -->
+
+            <!-- SpaceX header -->
+            <div class="row mt-5">
+                <div class="col col-lg-10 mx-auto">
+                    <div class="container">
+                        <img src="assets/images/icon-iss.png" class="rounded mx-auto d-block">
+                        <h1 class="display-3">SpaceX Info <span id="next-launch"></span></h1>
+                        <p class="lead">
+                            Stay up to date on SpaceX's launches, missions, and current rocket inventory.
+                        </p>
+                        <div class="text-center">
+                            <a href="#map"><button class="ui secondary button my-2" id="issmap-button">
+                                    Map
+                                </button></a>
+                              <a href="#launch-box"><button class="ui secondary button my-2" id="isslaunches-button">
+                                Launches
+                            </button></a> 
+                        <a href="#missions"><button class="ui secondary button my-2" id="issmission-button">
+                                Mission
+                            </button></a> 
+                        <a href="#rockets"><button class="ui secondary button my-2" id="issrocket-button">
+                                Rockets
+                            </button></a> 
+                        </div>
+                        <h4 class="ui horizontal divider header">
+                            <i class="rocket icon my-5"></i>
+                            Map
+                        </h4>
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Launches -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5" id=launch-box></i>
+                        Launches
+                    </h4>
+                    <h3 class="text-center my-5">Next launch in
+                        <br>
+                        <span class="display-4" id="launch-time">278:47:25</span>
+                    </h3>
+                    <h3>Upcoming launches</h3>
+                    <table class="ui celled table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Rocket</th>
+                                <th>Total payload</th>
+                            </tr>
+                        </thead>
+                        <tbody id="upcoming-launches">
+                            <!-- Launches go here -->
+                        </tbody>
+                    </table>
+        
+                </div>
+            </div>
+            
+
+            <!-- Missions -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto py-5">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        Missions
+                    </h4>
+                    <div id="missions">
+                        <!-- Missions go here -->
+                    </div>
+                </div>                
+            </div>
+
+        
+            <!-- Rockets -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        Rockets
+                    </h4>
+                    <div class="py-5">
+                        <h3>Rockets</h3>
+                        <table class="ui celled table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Height</th>
+                                    <th>Diameter</th>
+                                    <th>Mass</th>
+                                    <th>Success rate</th>
+                                    <th>Cost per launch</th>
+                                    <th>Active</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rockets">
+                                <!-- Rockets go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+                   <!-- Scroll Top Button -->
+                   <a id="top-button"></a>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+        </script>
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+    <!-- Moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+    <!-- scroll top js -->
+    <link rel="stylesheet" href="assets/js/scrolltop2.js">
+    <!-- Boostrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Sematic UI -->
+    <script src="assets/semantic-ui/semantic.min.js"></script>
+    <!-- Call semantic methods -->
+    <script src="assets/js/sematic-ui.js"></script>
+    <!-- Lightgallery -->
+    <script src="assets/lightgallery-js/dist/js/lightgallery-all.min.js"></script>
+    <!-- Lightgallery plugins -->
+    <!-- <script src="assets/lightgallery-js/modules/lg-thumbnail.min.js"></script> -->
+    <!-- Justified gallery -->
+    <script src="assets/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    <!-- My scripts -->
+    <!-- Leaflet Map -->
+    <script src="assets/js/leaflet.js"></script>
+    <!-- Rover images -->
+    <script src="assets/js/roverimages.js"></script>
+    <!-- Asteroid table -->
+    <script src="assets/js/asteroiddata.js"></script>
+    <!-- ISS data -->
+    <script src="assets/js/iss.js"></script>
+    <!-- Scroll top -->
+    <script src="assets/js/scrolltop.js"></script>
+    <script src="assets/js/scrolltop2.js"></script>
+
+    <!-- SpaceX -->
+    <script src="assets/js/spacex.js"></script>
+</body>
+
+</html>

@@ -1,3 +1,77 @@
+body {
+    background-color:#353B3C; 
+    font-family: 'Kanit', sans-serif;
+  }
+  
+  .display-4 {
+    font-family: 'Baloo Chettan', cursive;
+    font-size: 80px;
+    text-align: center;
+  }
+  
+  .display-3 {
+    font-family: 'Baloo Chettan', cursive;
+    font-size: 50px;
+    text-align: center;
+    margin-top:0px;
+    margin-bottom: 0px;
+  }
+  
+  .display-2 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 40px;
+  }
+  
+  #rover-button, #rover-load-more-button, #back-to-top-button, #date-button, #prev-button, #next-button, #issmap-button, #isslaunches-button, #issmission-button, #issrocket-button, #launch-button {
+    background-color: #fe6f5e;
+  }
+  
+  .alert {
+    width:40%;    
+    margin: auto;
+  }
+  
+  
+  .lead {
+    text-align: center;
+  }
+  a {
+    font-family: 'Baloo Chettan', cursive;
+    color: #fe6f5e;
+    font-size: 20px;
+  }
+  
+  #menulink {
+    color: #fe6f5e;
+  }
+  
+  button {
+    background-color: #fe6f5e;
+  }
+  
+  
+  #logo {
+    height: 15%;
+    width: 15%;
+  }
+  
+  html, body {
+    height: 100%; 
+  }
+
+#map {
+    height: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
+    @media only screen and (min-width: 450px) {
+        height: 350px;
+    }
+}
+
+.segment {
+    min-height: 400px;
+}
+
 #date-form {
     #month-input, #day-input {
         width: 55px;
@@ -26,4 +100,41 @@
   }
   .jumbotron{
     background-color: #0099cc;
+}
+
+  #top-button {
+  display: inline-block;
+  background-color: #fe6f5e;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+  #top-button::after {
+  content: "^";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+  #top-button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+  #top-button:active {
+  background-color: #555;
+}
+  #top-button.show {
+  opacity: 1;
+  visibility: visible;
 }
