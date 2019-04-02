@@ -17,7 +17,9 @@
     <!-- Reset css -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Semantic UI -->
@@ -31,7 +33,8 @@
     <!-- Custom css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
@@ -46,7 +49,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="jumbotron jumbotron-fluid mt-5" style="background-color: #f7f7f7">
             <img src="assets/images/spacedashboard.png" class="img-fluid rounded mx-auto d-block">
         </div>
@@ -67,20 +70,20 @@
             </a>
         </div>
         <div class="ui top attached tabular menu mt-5" id="desktop-tabs">
-                <!-- Desktop tabs -->
-                <a class="active item" data-tab="first" id="menulink">
-                    NASA
-                </a>
-                <a class="item" data-tab="second" id="menulink">
-                    Rover
-                </a>
-                <a class="item" data-tab="third" id="menulink">
-                    Asteroids
-                </a>
-                <a class="item" data-tab="fourth" id="menulink">
-                    SpaceX
-                </a>
-            </div>
+            <!-- Desktop tabs -->
+            <a class="active item" data-tab="first" id="menulink">
+                NASA
+            </a>
+            <a class="item" data-tab="second" id="menulink">
+                Rover
+            </a>
+            <a class="item" data-tab="third" id="menulink">
+                Asteroids
+            </a>
+            <a class="item" data-tab="fourth" id="menulink">
+                SpaceX
+            </a>
+        </div>
 
         <!-- NASA PHOTO -->
 
@@ -252,15 +255,15 @@
                             <a href="#map"><button class="ui secondary button my-2" id="issmap-button">
                                     Map
                                 </button></a>
-                              <a href="#launch-box"><button class="ui secondary button my-2" id="isslaunches-button">
-                                Launches
-                            </button></a> 
-                        <a href="#missions"><button class="ui secondary button my-2" id="issmission-button">
-                                Mission
-                            </button></a> 
-                        <a href="#rockets"><button class="ui secondary button my-2" id="issrocket-button">
-                                Rockets
-                            </button></a> 
+                            <a href="#launch-box"><button class="ui secondary button my-2" id="isslaunches-button">
+                                    Launches
+                                </button></a>
+                            <a href="#missions"><button class="ui secondary button my-2" id="issmission-button">
+                                    Mission
+                                </button></a>
+                            <a href="#rockets"><button class="ui secondary button my-2" id="issrocket-button">
+                                    Rockets
+                                </button></a>
                         </div>
                     </div>
                 </div>
@@ -278,7 +281,7 @@
             </div>
 
             <!-- Launches -->
-            <div class="row">
+            <div class="row" id="launch-box">
                 <div class="col col-lg-10 mx-auto">
                     <h4 class="ui horizontal divider header">
                         <i class="rocket icon my-5" id=launch-box></i>
@@ -302,13 +305,13 @@
                             <!-- Launches go here -->
                         </tbody>
                     </table>
-        
+
                 </div>
             </div>
-            
+
 
             <!-- Missions -->
-            <div class="row">
+            <div class="row" id="mission-box">
                 <div class="col col-lg-10 mx-auto py-5">
                     <h4 class="ui horizontal divider header">
                         <i class="rocket icon my-5"></i>
@@ -317,12 +320,12 @@
                     <div id="missions">
                         <!-- Missions go here -->
                     </div>
-                </div>                
+                </div>
             </div>
 
-        
+
             <!-- Rockets -->
-            <div class="row">
+            <div class="row" id="rocket-box">
                 <div class="col col-lg-10 mx-auto">
                     <h4 class="ui horizontal divider header">
                         <i class="rocket icon my-5"></i>
@@ -355,52 +358,56 @@
 
     </div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
-        </script>
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <!-- Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin=""></script>
-    <!-- Moment js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-    <!-- scroll top js -->
-    <link rel="stylesheet" href="assets/js/scrolltop2.js">
-    <!-- Boostrap -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <!-- Sematic UI -->
-    <script src="assets/semantic-ui/semantic.min.js"></script>
-    <!-- Call semantic methods -->
-    <script src="assets/js/sematic-ui.js"></script>
-    <!-- Lightgallery -->
-    <script src="assets/lightgallery-js/dist/js/lightgallery-all.min.js"></script>
-    <!-- Lightgallery plugins -->
-    <!-- <script src="assets/lightgallery-js/modules/lg-thumbnail.min.js"></script> -->
-    <!-- Justified gallery -->
-    <script src="assets/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        <!-- footer -->
+        <footer> copyright 2019 choco taco &copy;
+        </footer>
 
-    <!-- My scripts -->
-    <!-- Firebase -->
-    <script src="assets/js/firebase.js"></script>
-    <!-- Leaflet Map -->
-    <script src="assets/js/leaflet.js"></script>
-    <!-- Picture of the day -->
-    <script src="assets/js/apod.js"></script>
-    <!-- Rover images -->
-    <script src="assets/js/roverimages.js"></script>
-    <!-- Asteroid table -->
-    <script src="assets/js/asteroiddata.js"></script>
-    <!-- ISS data -->
-    <script src="assets/js/iss.js"></script>
-    <!-- Scroll top -->
-    <script src="assets/js/scrolltop.js"></script>
-    <script src="assets/js/scrolltop2.js"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+            </script>
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+        <!-- Leaflet -->
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+        <!-- Moment js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+        <!-- scroll top js -->
+        <link rel="stylesheet" href="assets/js/scrolltop2.js">
+        <!-- Boostrap -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Sematic UI -->
+        <script src="assets/semantic-ui/semantic.min.js"></script>
+        <!-- Call semantic methods -->
+        <script src="assets/js/sematic-ui.js"></script>
+        <!-- Lightgallery -->
+        <script src="assets/lightgallery-js/dist/js/lightgallery-all.min.js"></script>
+        <!-- Lightgallery plugins -->
+        <!-- <script src="assets/lightgallery-js/modules/lg-thumbnail.min.js"></script> -->
+        <!-- Justified gallery -->
+        <script src="assets/justified-gallery/jquery.justifiedGallery.min.js"></script>
 
-    <!-- SpaceX -->
-    <script src="assets/js/spacex.js"></script>
+        <!-- My scripts -->
+        <!-- Firebase -->
+        <script src="assets/js/firebase.js"></script>
+        <!-- Leaflet Map -->
+        <script src="assets/js/leaflet.js"></script>
+        <!-- Picture of the day -->
+        <script src="assets/js/apod.js"></script>
+        <!-- Rover images -->
+        <script src="assets/js/roverimages.js"></script>
+        <!-- Asteroid table -->
+        <script src="assets/js/asteroiddata.js"></script>
+        <!-- ISS data -->
+        <script src="assets/js/iss.js"></script>
+        <!-- Scroll top -->
+        <script src="assets/js/scrolltop.js"></script>
+        <script src="assets/js/scrolltop2.js"></script>
+
+        <!-- SpaceX -->
+        <script src="assets/js/spacex.js"></script>
 </body>
 
 </html>
