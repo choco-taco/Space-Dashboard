@@ -1,5 +1,57 @@
+body {
+  background:#353B3C url(""); 
+  font-family: 'Kanit', sans-serif;
+}
+
+.display-4 {
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 80px;
+  text-align: center;
+}
+
+.display-3 {
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 50px;
+  text-align: center;
+  margin-top:0px;
+  margin-bottom: 0px;
+}
+
+.display-2 {
+  font-family: 'Kanit', sans-serif;
+  font-size: 40px;
+}
+
+#rover-button, #rover-load-more-button, #back-to-top-button, #date-button, #prev-button, #next-button, #issmap-button, #isslaunches-button, #issmission-button, #issrocket-button, #launch-button {
+  background-color: #fe6f5e;
+}
+
+.lead {
+  text-align: center;
+}
+a {
+  font-family: 'Baloo Chettan', cursive;
+  color: #fe6f5e;
+  font-size: 20px;
+}
+
+#menulink {
+  color: #fe6f5e;
+}
+
+button {
+  background-color: #fe6f5e;
+}
+
+
+#logo {
+  height: 15%;
+  width: 15%;
+}
+
 html, body {
-  height: 100%; }
+  height: 100%; 
+}
 
 #map {
   height: 200px;
