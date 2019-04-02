@@ -17,7 +17,8 @@
     <!-- Reset css -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin="" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -31,6 +32,8 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Kanit" rel="stylesheet">
     <!-- Custom css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
@@ -110,16 +113,19 @@
             <div id="rover-segment">
 
                 <div class="ui form pb-3 mx-auto">
-                        
-                        <div class="alert alert-secondary" role="alert">
-                            Choose a SOL date (ex: 10, 416, 532) and enter in the box below. Or use this <a href="http://www-mars.lmd.jussieu.fr/mars/time/martian_time.html" target="blank">SOL date calculator</a>.
-                        
+
+                    <div class="alert alert-secondary" role="alert">
+                        Choose a SOL date (ex: 10, 416, 532) and enter in the box below. Or use this <a
+                            href="http://www-mars.lmd.jussieu.fr/mars/time/martian_time.html" target="blank">SOL date
+                            calculator</a>.
+
                     </div>
                     <div class="grouped fields">
                         <div class="field text-center my-5">
                             <!-- <label for="rover">Rover</label> -->
                             <div class="ui radio checkbox">
-                                <input type="radio" name="rover" checked="" tabindex="0" class="hidden" value="curiosity">
+                                <input type="radio" name="rover" checked="" tabindex="0" class="hidden"
+                                    value="curiosity">
                                 <label>Curiosity</label>
                             </div>
                             <div class="ui radio checkbox mx-2">
@@ -135,7 +141,8 @@
                             <!-- <label>Sol</label> -->
                             <div class="ui input">
                                 <div class="mx-auto">
-                                    <input type="number" min="0" placeholder="Sol" id="sol-input" style="max-width: 150px;">
+                                    <input type="number" min="0" placeholder="Sol" id="sol-input"
+                                        style="max-width: 150px;">
                                     <button class="ui secondary button mx-3" id="rover-button">
                                         Load
                                     </button>
@@ -233,15 +240,18 @@
                             Stay up to date on SpaceX's launches, missions, and current rocket inventory.
                         </p>
                         <div class="text-center">
-                            <button class="ui secondary button my-2" id="issmap-button">
-                                Map
-                            </button><button class="ui secondary button my-2" id="isslaunches-button">
+                            <a href="#map"><button class="ui secondary button my-2" id="issmap-button">
+                                    Map
+                                </button></a>
+                              <a href="#launch-box"><button class="ui secondary button my-2" id="isslaunches-button">
                                 Launches
-                            </button><button class="ui secondary button my-2" id="issmission-button">
+                            </button></a> 
+                        <a href="#missions"><button class="ui secondary button my-2" id="issmission-button">
                                 Mission
-                            </button><button class="ui secondary button my-2" id="issrocket-button">
+                            </button></a> 
+                        <a href="#rockets"><button class="ui secondary button my-2" id="issrocket-button">
                                 Rockets
-                            </button>
+                            </button></a> 
                         </div>
                         <h4 class="ui horizontal divider header">
                             <i class="rocket icon my-5"></i>
@@ -256,7 +266,7 @@
             <div class="row">
                 <div class="col col-lg-10 mx-auto">
                     <h4 class="ui horizontal divider header">
-                        <i class="rocket icon my-5"></i>
+                        <i class="rocket icon my-5" id=launch-box></i>
                         Launches
                     </h4>
                     <h3 class="text-center my-5">Next launch in
@@ -277,8 +287,10 @@
                             <!-- Launches go here -->
                         </tbody>
                     </table>
+        
                 </div>
             </div>
+            
 
             <!-- Missions -->
             <div class="row">
@@ -290,9 +302,10 @@
                     <div id="missions">
                         <!-- Missions go here -->
                     </div>
-                </div>
+                </div>                
             </div>
 
+        
             <!-- Rockets -->
             <div class="row">
                 <div class="col col-lg-10 mx-auto">
@@ -321,20 +334,24 @@
                     </div>
                 </div>
             </div>
-
         </div>
+                   <!-- Scroll Top Button -->
+                   <a id="top-button"></a>
 
     </div>
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
         </script>
     <!-- Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
     <!-- Moment js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+    <!-- scroll top js -->
+    <link rel="stylesheet" href="assets/js/scrolltop2.js">
     <!-- Boostrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <!-- Sematic UI -->
@@ -359,6 +376,8 @@
     <script src="assets/js/iss.js"></script>
     <!-- Scroll top -->
     <script src="assets/js/scrolltop.js"></script>
+    <script src="assets/js/scrolltop2.js"></script>
+
     <!-- SpaceX -->
     <script src="assets/js/spacex.js"></script>
 </body>
