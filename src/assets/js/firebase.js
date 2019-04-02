@@ -50,7 +50,7 @@
 
     fbImages.onSnapshot(function(snapshot) {
         snapshot.docChanges().forEach(function(change) {
-            $(`a[data-id=${change.doc.id}] .likes`).text(change.doc.data().likes)
+            $(`a[data-id=${change.doc.id}] .likes`).text(change.doc.data().likes);
         });
     });
 
