@@ -81,7 +81,7 @@ html, body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  transition: background-color .3s,  opacity .5s, visibility .5s;
+  transition: background-color .3s,  opacity .5s, visibility .5s;
   opacity: 0;
   visibility: hidden;
   z-index: 1000; }
@@ -105,3 +105,12 @@ html, body {
 #top-button.show {
   opacity: 1;
   visibility: visible; }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fe6f5e;
+  color: #353B3C;
+  text-align: center; }
