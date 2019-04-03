@@ -2,9 +2,9 @@
 // pk.eyJ1IjoieXVrZXp0ZXIiLCJhIjoiY2p0dGp1NTF5MDRmcTQ0bzV5eWRoYmplYSJ9.h7kSaY8_0O3OCzc0oRpBtQ
 
 (function(){
-    var map = L.map('map').setView([51.505, -0.09], 13).setZoom(2);
+    var map = L.map('map').setZoom(2);
 
-    var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+    L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
         attribution: '',
         subdomains: 'abcd',
         minZoom: 0,
@@ -23,7 +23,7 @@
     var iss = L.marker([51.5, -0.09], {icon: issIcon}).addTo(map);
 
     function moveISS () {
-        $.getJSON('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json', function(data) {
+        $.getJSON('/api/iss-data', function(data) {
             var lat = data['iss_position']['latitude'];
             var lon = data['iss_position']['longitude'];
             

@@ -2,9 +2,10 @@
   "name": "quick-start",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "sass": "node-sass -w scss -o src/assets/css --recursive"
+    "sass": "node-sass -w scss -o src/assets/css --recursive",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,9 @@
   },
   "homepage": "https://github.com/choco-taco/Space-Dashboard#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
     "node-sass": "^4.11.0"
   }
 }

@@ -38,7 +38,7 @@
         console.log(urlQuery);
 
         $.ajax({
-            url: urlQuery,
+            url: `/api/rover-images/rover/${rover}/sol/${sol}/page/${pg}`,
             method: 'GET',
         }).then(function(response) {
             renderRoverImages(response);
