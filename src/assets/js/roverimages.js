@@ -146,24 +146,6 @@
         }
     }
 
-    function topPhoto() {
-        fbImages.get().then(function(snapshot) {
-            var topPhoto = {
-                id: '',
-                likes: 0
-            };
-            snapshot.forEach(function(doc) {
-                if (doc.data().likes > topPhoto.likes) {
-                    topPhoto.id = doc.id;
-                    topPhoto.likes = doc.data().likes;
-                }
-            });
-            console.log(topPhoto.likes);
-        });
-    }
-
-    topPhoto();
-
     $('#rover-button').on('click', function() {
 
         rover = $('input[name=rover]:checked').val();
