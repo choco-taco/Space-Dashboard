@@ -2,6 +2,27 @@
 
     // Launches
 
+    function countdown(nextLaunchObj) {
+        var launchDate = moment(nextLaunchObj.launch_date_local);
+        var intervalId = setInterval(function() {
+            var duration = moment.duration(launchDate.diff(moment()));
+            const formatted = moment(duration._data).format("DD:HH:mm:ss");
+            $('#launch-time').text(formatted);
+        }, 1000);
+    }
+
+    function reqNextLaunch() {
+        var urlQuery = 'https://api.spacexdata.com/v3/launches/next';
+        $.ajax({
+            url: urlQuery,
+            method: 'GET'
+        }).then(function(response) {
+            countdown(response);
+        });
+    }
+
+    reqNextLaunch();
+
     function renderUpcomingLaunches(arr) {
 
         arr.forEach(function(launch) {

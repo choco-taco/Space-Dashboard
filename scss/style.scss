@@ -27,7 +27,7 @@ body {
   }
   
   .alert {
-    width:40%;    
+    width: 250px;    
     margin: auto;
   }
   
@@ -59,15 +59,6 @@ body {
     height: 100%; 
   }
 
-#map {
-    height: 200px;
-    // padding-left: 100px;
-    // padding-right: 100px;
-    @media only screen and (min-width: 450px) {
-        height: 350px;
-    }
-}
-
 #mobile-tabs {
     .item {
         padding: 10px;
@@ -76,6 +67,7 @@ body {
         display: none;
     }
 }
+
 #desktop-tabs {
     display: none;
     @media only screen and (min-width: 550px) {
@@ -87,55 +79,77 @@ body {
     min-height: 400px;
 }
 
+.like:hover {
+    cursor: pointer;
+}
+
+#map {
+    height: 200px;
+    @media only screen and (min-width: 450px) {
+        height: 350px;
+    }
+}
+
+#launch-time {
+    font-size: 50px;
+    @media only screen and (min-width: 500px) {
+        font-size: 80px;
+    }
+}
+
 #date-form {
     #month-input, #day-input {
         width: 55px;
     }
 }
 
-
 #top-button {
-display: inline-block;
-background-color: #fe6f5e;
-width: 50px;
-height: 50px;
-text-align: center;
-border-radius: 4px;
-position: fixed;
-bottom: 30px;
-right: 30px;
-transition: background-color .3s, 
-opacity .5s, visibility .5s;
-opacity: 0;
-visibility: hidden;
-z-index: 1000;
+    display: inline-block;
+    background-color: #fe6f5e;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
 }
+
 #top-button::after {
 content: "^";
-font-family: FontAwesome;
-font-weight: normal;
-font-style: normal;
-font-size: 2em;
-line-height: 50px;
-color: #fff;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
 }
+
 #top-button:hover {
 cursor: pointer;
-background-color: #333;
+    background-color: #333;
 }
+
 #top-button:active {
-background-color: #555;
+    background-color: #555;
 }
+
 #top-button.show {
-opacity: 1;
-visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #fe6f5e;
-  color: #353B3C;
-  text-align: center;
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fe6f5e;
+    color: #353B3C;
+    text-align: center;
 }
