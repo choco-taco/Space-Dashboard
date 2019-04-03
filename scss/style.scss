@@ -120,15 +120,7 @@ body {
     z-index: 1000;
 }
 
-#top-button::after {
-content: "^";
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 2em;
-    line-height: 50px;
-    color: #fff;
-}
+
 
 #top-button:hover {
 cursor: pointer;
