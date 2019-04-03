@@ -35,7 +35,7 @@
 
     moveISS();
 
-    $('.tabular a[data-tab="fourth"]').on('click', function() {
+    $('.tabular a[data-tab="first"]').on('click', function() {
         map.invalidateSize();
     });
 }());

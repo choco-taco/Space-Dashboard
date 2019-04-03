@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Semantic UI -->
@@ -37,10 +36,10 @@
 <body>
     <div class="ui inverted menu fixed">
         <div class="container">
-            <a href="index.html" class="item">
+            <a href="index.html" class="active item" style="background-color: #fe6f5e">
                 Home
             </a>
-            <a href="dashboard.html" class="active item" style="background-color: #fe6f5e">
+            <a href="dashboard.html" class="item">
                 Dashboard
             </a>
         </div>
@@ -49,7 +48,7 @@
     <div class="container mb-5">
         <div class="jumbotron jumbotron-fluid mt-5" style="background-color: #f7f7f7">
             <div class="container mt-5">
-                <img src="assets/images/spacedashboard.png" class="rounded mx-auto d-block">
+                <img src="assets/images/spacedashboard.png" class="img-fluid rounded mx-auto d-block">
                 <br>
                 <div class="text-center">
                     <a href="dashboard.html" class="massive ui secondary button mt-3" id="launch-button">Launch</button>

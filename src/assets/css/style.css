@@ -22,7 +22,7 @@ body {
   background-color: #fe6f5e; }
 
 .alert {
-  width: 40%;
+  width: 250px;
   margin: auto; }
 
 .lead {
@@ -46,27 +46,36 @@ button {
 html, body {
   height: 100%; }
 
+#mobile-tabs .item {
+  padding: 10px; }
+
+@media only screen and (min-width: 550px) {
+  #mobile-tabs {
+    display: none; } }
+
+#desktop-tabs {
+  display: none; }
+  @media only screen and (min-width: 550px) {
+    #desktop-tabs {
+      display: flex; } }
+
+.segment {
+  min-height: 400px; }
+
+.like:hover {
+  cursor: pointer; }
+
 #map {
   height: 200px; }
   @media only screen and (min-width: 450px) {
     #map {
       height: 350px; } }
 
-#mobile-tabs .item {
-  padding: 10px; }
-
-@media only screen and (min-width: 500px) {
-  #mobile-tabs {
-    display: none; } }
-
-#desktop-tabs {
-  display: none; }
+#launch-time {
+  font-size: 50px; }
   @media only screen and (min-width: 500px) {
-    #desktop-tabs {
-      display: flex; } }
-
-.segment {
-  min-height: 400px; }
+    #launch-time {
+      font-size: 80px; } }
 
 #date-form #month-input, #date-form #day-input {
   width: 55px; }
@@ -81,13 +90,13 @@ html, body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  transition: background-color .3s,  opacity .5s, visibility .5s;
+  transition: background-color .3s, 
+ opacity .5s, visibility .5s;
   opacity: 0;
   visibility: hidden;
   z-index: 1000; }
 
 #top-button::after {
-  content: "^";
   font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;

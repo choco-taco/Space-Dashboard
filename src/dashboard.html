@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Semantic UI -->
@@ -93,9 +92,23 @@
                     <img src="assets/images/icon-nasa.png" class="rounded mx-auto d-block">
                     <h1 class="display-3">Photo of the Day</h1>
                     <p class="lead text-center">Check out NASA's photo of the day</p>
-                    <div id="apod">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        APOD
+                    </h4>
+                    <div class="mx-auto" id="apod" style="max-width: 600px;">
                         <!-- Picture of the day goes here -->
                     </div>
+                </div>
+            </div>
+            <!-- Map -->
+            <div class="row">
+                <div class="col col-lg-10 mx-auto">
+                    <h4 class="ui horizontal divider header">
+                        <i class="rocket icon my-5"></i>
+                        Map
+                    </h4>
+                    <div class="my-5" id="map" style="z-index: 0"></div>
                 </div>
             </div>
         </div>
@@ -109,8 +122,7 @@
                 <div class="col col-lg-10 mx-auto">
                     <img src="assets/images/icon-marsrover.png" class="rounded mx-auto d-block">
                     <h1 class="display-3">Mars Rover Photos</h1>
-                    <p class="lead text-center">View images taken by any of the three rovers on Mars based on a Sol
-                        date.</p>
+                    <p class="lead text-center">View images taken by any of the three rovers on Mars based on a Sol date.</p>
                     <!-- FIREBASE LIKE A PHOTO SECTION -->
                     <div id="top-photo">
 
@@ -190,7 +202,7 @@
         <div class="ui bottom attached tab segment" data-tab="third">
             <!-- Asteroids segment -->
 
-            <div class="row mt-5">
+            <div class="row my-5">
                 <div class="col col-lg-10 mx-auto">
                     <div class="container">
                         <img src="assets/images/icon-asteroids.png" class="rounded mx-auto d-block">
@@ -203,7 +215,7 @@
                             <i class="rocket icon my-5"></i>
                             Asteroids
                         </h4>
-                        <div class="table-buttons text-center py-1">
+                        <div class="table-buttons text-center py-1 my-3">
                             <div class="ui input d-block my-2" id="date-form">
                                 <input id="date-input" type="date" placeholder="YYYY" value="2019-03-27">
                                 <button class="ui secondary button ml-2" id="date-button">
@@ -211,7 +223,7 @@
                                 </button>
                             </div>
                         </div>
-                        <table class="ui celled table my-4" id="asteroids-table">
+                        <table class="ui celled table my-5" id="asteroids-table">
                             <thead id="asteroids-table-head">
                                 <tr>
                                     <th>Name</th>
@@ -226,10 +238,10 @@
                             </tbody>
                         </table>
                         <div class="table-buttons text-center">
-                            <button class="ui secondary button my-2" id="prev-button">
+                            <button class="ui secondary button my-3" id="prev-button">
                                 Prev
                             </button>
-                            <button class="ui secondary button my-2" id="next-button">
+                            <button class="ui secondary button my-3" id="next-button">
                                 Next
                             </button>
                         </div>
@@ -252,9 +264,6 @@
                             Stay up to date on SpaceX's launches, missions, and current rocket inventory.
                         </p>
                         <div class="text-center">
-                            <a href="#map"><button class="ui secondary button my-2" id="issmap-button">
-                                    Map
-                                </button></a>
                             <a href="#launch-box"><button class="ui secondary button my-2" id="isslaunches-button">
                                     Launches
                                 </button></a>
@@ -269,27 +278,18 @@
                 </div>
             </div>
 
-            <!-- Map -->
-            <div class="row">
-                <div class="col col-lg-10 mx-auto">
-                    <h4 class="ui horizontal divider header">
-                        <i class="rocket icon my-5"></i>
-                        Map
-                    </h4>
-                    <div class="my-5" id="map" style="z-index: 0"></div>
-                </div>
-            </div>
-
             <!-- Launches -->
             <div class="row" id="launch-box">
                 <div class="col col-lg-10 mx-auto">
                     <h4 class="ui horizontal divider header">
-                        <i class="rocket icon my-5" id=launch-box></i>
+                        <i class="rocket icon my-5"></i>
                         Launches
                     </h4>
                     <h3 class="text-center my-5">Next launch in
                         <br>
-                        <span class="display-4" id="launch-time">278:47:25</span>
+                        <div class="display-4" id="launch-time">
+                            <!-- Launch time -->
+                        </div>
                     </h3>
                     <h3>Upcoming launches</h3>
                     <table class="ui celled table">
@@ -331,9 +331,9 @@
                         <i class="rocket icon my-5"></i>
                         Rockets
                     </h4>
-                    <div class="py-5">
+                    <div>
                         <h3>Rockets</h3>
-                        <table class="ui celled table">
+                        <table class="ui celled table mb-5">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -354,7 +354,7 @@
             </div>
         </div>
         <!-- Scroll Top Button -->
-        <a id="top-button"></a>
+        <a id="top-button"><i class="chevron up icon"></i></a>
 
     </div>
 
@@ -374,8 +374,6 @@
             crossorigin=""></script>
         <!-- Moment js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-        <!-- scroll top js -->
-        <link rel="stylesheet" href="assets/js/scrolltop2.js">
         <!-- Boostrap -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
         <!-- Sematic UI -->
@@ -404,8 +402,6 @@
         <script src="assets/js/iss.js"></script>
         <!-- Scroll top -->
         <script src="assets/js/scrolltop.js"></script>
-        <script src="assets/js/scrolltop2.js"></script>
-
         <!-- SpaceX -->
         <script src="assets/js/spacex.js"></script>
 </body>
