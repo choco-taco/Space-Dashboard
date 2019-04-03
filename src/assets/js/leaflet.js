@@ -4,7 +4,7 @@
 (function(){
     var map = L.map('map').setView([51.505, -0.09], 13).setZoom(2);
 
-    L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+    var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
         attribution: '',
         subdomains: 'abcd',
         minZoom: 0,
