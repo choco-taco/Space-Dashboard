@@ -33,10 +33,6 @@
     }
 
     function reqRoverImages(rover, sol, pg) {
-
-        var urlQuery = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=${pg}&api_key=2f8aJAjNNh8BekW6ZgjWpdqXBhrtZoQCX12mfhla`;
-        console.log(urlQuery);
-
         $.ajax({
             url: `/api/rover-images/rover/${rover}/sol/${sol}/page/${pg}`,
             method: 'GET',

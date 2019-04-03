@@ -41,10 +41,11 @@ app.get("/api/iss-data", function(req, res) {
 });
 
 app.get('/api/rover-images/rover/:rover/sol/:sol/page/:pg', function(req, res) {
-    console.log(req.params.url);
-    axios.get(req.params.url)
+    var urlQuery = `https://api.nasa.gov/mars-photos/api/v1/rovers/${req.params.rover}/photos?sol=${req.params.sol}&page=${req.params.pg}&api_key=2f8aJAjNNh8BekW6ZgjWpdqXBhrtZoQCX12mfhla`;
+    axios.get(urlQuery)
     .then(function roverImagesSuccess(results) {
         res.json(results.data);
+        console.log(results.data);
     }, function roverImagesError(error) {
         console.log(error);
         res.status(500).json({
