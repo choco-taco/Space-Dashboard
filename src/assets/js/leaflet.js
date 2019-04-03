@@ -23,7 +23,7 @@
     var iss = L.marker([51.5, -0.09], {icon: issIcon}).addTo(map);
 
     function moveISS () {
-        $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function(data) {
+        $.getJSON('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json', function(data) {
             var lat = data['iss_position']['latitude'];
             var lon = data['iss_position']['longitude'];
             
