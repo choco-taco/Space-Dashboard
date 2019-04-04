@@ -25,19 +25,19 @@ app.get("/api/iss-data", function(req, res) {
         //send cached version
         return res.json(issData.data);
     }
-  axios.get("http://api.open-notify.org/iss-now.json")
-    .then(function issDataSuccess(results) {
-        issData = {
-            timestamp: moment().unix(),
-            data: results.data
-        }
-        res.json(results.data);
-    }, function issDataError(error) {
-        console.log(error);
-        res.status(500).json({
-            error
+    axios.get("http://api.open-notify.org/iss-now.json")
+        .then(function issDataSuccess(results) {
+            issData = {
+                timestamp: moment().unix(),
+                data: results.data
+            }
+            res.json(results.data);
+        }, function issDataError(error) {
+            console.log(error);
+            res.status(500).json({
+                error
+            });
         });
-    });
 });
 
 app.get('/api/rover-images/rover/:rover/sol/:sol/page/:pg', function(req, res) {
